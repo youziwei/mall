@@ -1,0 +1,22 @@
+// 这里是下导航栏的样式
+
+@import "mixins";
+
+// 父容器display:flex, 四个子容器:flex:1
+// 四个子容器平分整个宽度
+.g-tabbar {
+  display: flex;
+  width: 100%;
+  height: $tabbar-height;
+  background-color: #fff;
+
+  &-item {
+    flex: 1;
+    @include flex-center(column);
+
+    .iconfont {
+      margin-bottom: 4px;
+      font-size: $icon-font-size; //24px
+    }
+  }
+}

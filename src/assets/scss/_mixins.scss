@@ -1,0 +1,36 @@
+// 存放可复用样式 函数
+
+@import "variables";
+
+// flex-center (flex垂直水平居中)
+// 设置flex让里面的内容列方向垂直水平居中
+@mixin flex-center($direction: row) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin flex-between() {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+//ellipsis(不换行，省略号)
+@mixin ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+//multi line ellipsis(多行省略号)
+@mixin multiline-ellipsis($num: 2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $num;
+  -webkit-box-orient: vertical;
+  white-space: normal !important;
+  word-wrap: break-word;
+}
