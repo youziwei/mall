@@ -5,9 +5,10 @@
       <home-header></home-header>
     </header>
     <!-- 中间内容 -->
-    <div>
+    <me-scroll>
       <home-slider></home-slider>
-    </div>
+      <home-nav></home-nav>
+    </me-scroll>
     <!-- 底部导航 -->
     <div class="g-backtop-container"></div>
     <router-view/>
@@ -15,13 +16,17 @@
 </template>
 
 <script>
+import MeScroll from 'base/scroll' // 滚动条组件
 import HomeHeader from './header'
 import HomeSlider from './slider'
+import HomeNav from './nav'
 export default {
   name: 'Home',
   components: {
+    MeScroll,
     HomeHeader,
-    HomeSlider
+    HomeSlider,
+    HomeNav
   }
 }
 </script>

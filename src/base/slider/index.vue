@@ -62,7 +62,7 @@ export default {
         slidesPerView: 1, // 容器同时显示几张图片
         loop: this.loop, // 开启无缝滚动
         pagination: { // 如果有分页器，找到相应的节点
-          el: this.pageination ? '.swiper-pageination' : null
+          el: this.pagination ? '.swiper-pagination' : null
         }
       }
     }
