@@ -32,7 +32,7 @@ const routes = [
   {
     path: '/cart',
     name: 'Cart',
-    component: () => import('../views/home')
+    component: () => import('../views/cart')
   },
   {
     path: '/personal',

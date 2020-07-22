@@ -1,5 +1,5 @@
 <template>
-  <swiper :options="swiperOption">
+  <swiper :options="swiperOption" :key="keyId">
      <!-- 在这里写swiperSlide不易扩展，也没有数据循环，使用插槽就可以了 -->
     <slot></slot>
     <!-- 分页器 -->
@@ -45,6 +45,13 @@ export default {
     pagination: {
       type: Boolean,
       default: true
+    },
+    data: {
+      // 以函数方式存放
+      type: Array,
+      default() {
+        return []
+      }
     }
   },
   // 组件的data一定要是一个函数返回一个对象，
@@ -52,7 +59,27 @@ export default {
   // 保持组件的独立性
   data() {
     return {
-      swiperOption: {
+      keyId: Math.random() // 默认随机值
+    }
+  },
+
+  watch: {
+    data(newData) {
+      if (newData.length === 0) {
+        return
+      }
+      // 更新loop值，(一般用不到)
+      this.swiperOption.loop = newData.length <= 1 ? false : this.loop
+      this.keyId = Math.random()
+    }
+  },
+  // 这些数据只渲染因此，后续不需要发生变化，最好不要放在data里面
+  created() {
+    this.init()
+  },
+  methods: {
+    init() {
+      this.swiperOption = {
         watchOverflow: true, // 只有一张图片禁止滑动
         direction: this.direction, // 传过来的水平垂直滑动
         autoplay: this.interval ? { // 是否开启定时器
@@ -60,7 +87,7 @@ export default {
           disableOnInteraction: false // 有交互后停止轮播
         } : false,
         slidesPerView: 1, // 容器同时显示几张图片
-        loop: this.loop, // 开启无缝滚动
+        loop: this.data.length <= 1 ? false : this.loop, // 开启无缝滚动
         pagination: { // 如果有分页器，找到相应的节点
           el: this.pagination ? '.swiper-pagination' : null
         }

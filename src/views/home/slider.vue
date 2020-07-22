@@ -7,6 +7,7 @@
     :loop="loop"
     :interval="interval"
     :pagination="pagination"
+    :data="sliders"
     v-else>
     <!-- 获取数据是异步的，所有数据的值都获取到后再渲染页面 -->
     <swiper-slide v-for="(item, index) in sliders" :key="index">
@@ -65,8 +66,13 @@ export default {
     this.getSliders()
   },
   methods: {
+    // 更新数据,内部调用
+    update() {
+      return this.getSliders()
+    },
+
     getSliders() {
-      getHomeSlider().then(data => {
+      return getHomeSlider().then(data => {
         this.sliders = data
       })
     }

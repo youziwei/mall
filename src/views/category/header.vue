@@ -1,15 +1,11 @@
 <template>
-  <div class="category">
-    Category
-  </div>
+ <top-navbar></top-navbar>
 </template>
 
 <script>
-
 export default {
-  name: 'Category',
-  components: {
-  }
+  name: 'CategoryHeader',
+  components: {}
 }
 </script>
 

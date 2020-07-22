@@ -6,6 +6,8 @@ export const sliderOptions = {
   pagination: true
 }
 
+export const HEADER_TRANSITION_HEIGHT = 100
+
 export const navItems = [
   {
     linkUrl: 'https://www.baidu.com',
