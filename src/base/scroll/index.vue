@@ -95,7 +95,7 @@ export default {
           el: this.scrollbar ? '.swiper-scrollbar' : null,
           hide: true // 是否自动隐藏
         },
-        // 在on中触发下拉刷新上上拉加载
+        // 在on中触发下拉刷新上拉加载
         on: {
           sliderMove: this.scroll,
           // 松手刷新

@@ -1,7 +1,9 @@
 <template>
   <div id="app" class="g-container">
     <div class="g-view">
-      <router-view/>
+      <keep-alive>
+        <router-view/>
+      </keep-alive>
     </div>
     <div class='g-footer'>
       <tabbar></tabbar>

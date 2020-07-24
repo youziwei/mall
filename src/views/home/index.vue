@@ -26,7 +26,7 @@
       <home-nav></home-nav>
       <home-recommend @loaded="updateScroll" ref="recommend"></home-recommend>
     </me-scroll>
-    <!-- 底部导航 -->
+    <!-- 返回顶部 -->
     <div class="g-backtop-container">
       <me-backtop :visible="isBacktopVisible" @backtop="backToTop"></me-backtop>
     </div>
